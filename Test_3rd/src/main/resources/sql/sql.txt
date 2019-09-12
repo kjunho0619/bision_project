@@ -1,0 +1,18 @@
+--moneybook_member테이블 (회원 정보를 저장하기 위한 테이블)
+CREATE TABLE moneybook_member(
+    userid varchar2(20) primary key, --아이디
+    userpwd varchar2(20) not null --비밀번호
+);
+
+--moneybook_info테이블 (회원의 수입/지출 내역을 기록하기 위한 테이블)
+CREATE TABLE moneybook_info(
+    infonum number primary key,--일련번호(시퀀스)
+    userid varchar2(20) not null, --아이디
+    memo varchar2(1000) not null, --수입/지출 내용
+    type varchar2(20) not null, --수입/지출 구분
+    amount number DEFAULT 0, --수입/지출 금액
+    inputdate date DEFAULT SYSDATE, --수입/지출 발생날짜
+    CONSTRAINT momeybook_fk FOREIGN KEY (userid) REFERENCES moneybook_member(userid)
+);
+--moneybook_seq시퀀스 (moneybook_info테이블의 일련번호에 사용될 시퀀스 객체)
+CREATE SEQUENCE moneybook_seq;
