@@ -9,4 +9,4 @@
 <body>
 김준호입니다.
 </body>
-</html>
+</html>"src/main/webapp/WEB-INF/views/loginForm.jsp"
