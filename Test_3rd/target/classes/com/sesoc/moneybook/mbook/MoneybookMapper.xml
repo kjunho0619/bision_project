@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sesoc.moneybook.mbook.MoneyBookMapper">
+
+	<!-- 머니북 저장 -->
+	<insert id="insertData" parameterType="com.sesoc.moneybook.vo.MoneybookVO">
+		INSERT INTO moneybook_info
+		VALUES(
+		moneybook_seq.nextval,
+		#{userid},
+		#{memo},
+		#{type},
+		#{amount},
+		#{inputdate}
+		)
+	</insert>
+
+	<!-- 머니북 조회 -->
+	<select id="selectData" parameterType="com.sesoc.moneybook.vo.MoneybookVO" resultType="com.sesoc.moneybook.vo.MoneybookVO">
+		SELECT info_num
+		     , user_id
+		     , memo
+		     , type
+		     , amount
+		     , TO_CHAR(input_date,'YYYY-MM-DD') as inputdate
+		  FROM moneybook_info
+		 WHERE user_id    = #{userid}
+		   AND type	      = #{type}
+		   AND input_date = #{inputdate}
+		ORDER BY info_num DESC
+	</select>
+
+	<delete id="deleteData" parameterType="com.sesoc.moneybook.vo.MoneybookVO">
+		DELETE FROM moneybook_info
+		 WHERE user_id  = #{userid}
+		   AND info_num = #{infonum}
+	</delete>
+
+</mapper>
+

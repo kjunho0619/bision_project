@@ -1,6 +1,7 @@
-package com.sesoc.moneybook.controller;
+package com.sesoc.moneybook.mbook;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sesoc.moneybook.service.MoneyBookService;
 import com.sesoc.moneybook.vo.MoneybookVO;
 
 @Controller
@@ -34,8 +34,8 @@ public class MoneyBookController {
 
 	@RequestMapping(value = "selectData", method = { RequestMethod.GET, RequestMethod.POST })
 	@ResponseBody
-	public ArrayList<MoneybookVO> selectData(MoneybookVO vo, HttpSession session) {
-		ArrayList<MoneybookVO> list = new ArrayList<>();
+	public List<MoneybookVO> selectData(MoneybookVO vo, HttpSession session) {
+		List<MoneybookVO> list = new ArrayList<>();
 		list = service.selectData(vo, session);
 
 		return list;

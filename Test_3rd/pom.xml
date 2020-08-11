@@ -13,7 +13,7 @@
 		<java-version>1.8</java-version>
 		<org.springframework-version>4.3.6.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.8.10</org.aspectj-version>
-		<org.slf4j-version>1.7.22</org.slf4j-version>
+		<org.slf4j-version>1.7.25</org.slf4j-version>
 	</properties>
 
 	<!-- ojdbc6.jar 레퍼런스 주소 -->
@@ -179,6 +179,29 @@
 			<artifactId>lombok</artifactId>
 			<version>1.16.18</version> 
 		</dependency>
+		
+		<!-- Utils (lang3) -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.9</version>
+		</dependency>
+		
+		<!-- logBack (classic) -->
+		<dependency>
+		    <groupId>ch.qos.logback</groupId>
+		    <artifactId>logback-classic</artifactId>
+		    <version>1.2.3</version>
+		</dependency>
+		
+		<!-- logBack (core) -->
+		<dependency>
+		    <groupId>ch.qos.logback</groupId>
+		    <artifactId>logback-core</artifactId>
+		    <version>1.2.3</version>
+		</dependency>
+		
+				
 	</dependencies>
 	
     <build>

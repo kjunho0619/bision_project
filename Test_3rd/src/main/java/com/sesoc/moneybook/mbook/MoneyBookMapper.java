@@ -1,6 +1,6 @@
-package com.sesoc.moneybook.dao;
+package com.sesoc.moneybook.mbook;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.sesoc.moneybook.vo.MoneybookVO;
 
@@ -8,7 +8,7 @@ public interface MoneyBookMapper {
 
 	public int insertData(MoneybookVO vo);
 
-	public ArrayList<MoneybookVO> selectData(MoneybookVO vo);
+	public List<MoneybookVO> selectData(MoneybookVO vo);
 
 	public int deleteData(MoneybookVO vo);
 

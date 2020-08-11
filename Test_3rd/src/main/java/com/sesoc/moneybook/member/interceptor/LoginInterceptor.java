@@ -1,4 +1,4 @@
-package com.sesoc.moneybook.interceptor;
+package com.sesoc.moneybook.member.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

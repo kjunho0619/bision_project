@@ -1,4 +1,7 @@
-package com.sesoc.moneybook.controller;
+package com.sesoc.moneybook.member;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -8,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.sesoc.moneybook.service.MemberService;
 import com.sesoc.moneybook.vo.MemberVO;
 
 @Controller
@@ -29,7 +31,11 @@ public class MemberController {
 
 	@RequestMapping(value = "login", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login(MemberVO vo, HttpSession session, RedirectAttributes rttr) {
-		service.login(vo, session);
+		Map<String, Object> paramMap = new HashMap<String, Object>(); 
+		paramMap.put("userId",  vo.getUserid());
+		paramMap.put("userPwd", vo.getUserpwd());
+		
+		service.login(paramMap, session);
 		return "redirect:/";
 
 	}
@@ -49,7 +55,11 @@ public class MemberController {
 
 	@RequestMapping(value = "signup", method = { RequestMethod.GET, RequestMethod.POST })
 	public String signup(MemberVO vo, RedirectAttributes rttr) {
-		boolean result = service.signup(vo);
+		Map<String, Object> paramMap = new HashMap<String, Object>(); 
+		paramMap.put("userId",  vo.getUserid());
+		paramMap.put("userPwd", vo.getUserpwd());
+		
+		boolean result = service.signup(paramMap);
 
 		if (result == true) {
 			return "redirect:/loginForm";
